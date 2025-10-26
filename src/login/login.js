@@ -163,7 +163,7 @@ export default function Login() {
               <select
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
-                className="w-full p-2.5 border rounded-lg bg-gray-50 dark:bg-gray-700 dark:text-white"
+                className="w-full p-2.5 border rounded-lg bg-gray-50 dark:bg-gray-700 dark:text-dark"
               >
                 <option>OKU User</option>
                 <option>Driver</option>
