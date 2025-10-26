@@ -8,7 +8,7 @@ const OKUTransport = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
   // 👇 Replace these empty strings with your real image URLs
-  const images = ["", "", "", ""];
+  const images = ["img/1.png", "img/2.jpg", "img/3.jpg", "img/4.jpg"];
 
   // Change image every 3 seconds
   useEffect(() => {
@@ -78,7 +78,7 @@ const OKUTransport = () => {
             {images.map((img, index) => (
               <img
                 key={index}
-                src={img || "https://via.placeholder.com/500x300?text=Vehicle+Image"}
+                src={img}
                 alt={`Vehicle ${index + 1}`}
                 className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
                   index === currentImage ? "opacity-100" : "opacity-0"
