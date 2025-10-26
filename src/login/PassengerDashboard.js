@@ -64,7 +64,7 @@ const OKUPassengerDashboard = () => {
 
   const fetchBookings = async (email) => {
     try {
-      const response = await fetch(`http://localhost/backend/getBook.php?email=${email}`);
+      const response = await fetch(`https://okutransport.site/backend/getBook.php?email=${email}`);
       const data = await response.json();
       if (data.success) {
         const fetchedBookings = data.bookings || [];
@@ -132,7 +132,7 @@ const OKUPassengerDashboard = () => {
   const fetchLatest = useCallback(async () => {
     if (!activeRideId) return;
     try {
-      const res = await fetch(`http://localhost/backend/location.php?ride_id=${encodeURIComponent(activeRideId)}`);
+      const res = await fetch(`https://okutransport.site/backend/location.php?ride_id=${encodeURIComponent(activeRideId)}`);
       const json = await res.json();
       if (json?.success && json.data) {
         const d = json.data;
@@ -171,7 +171,7 @@ const OKUPassengerDashboard = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await fetch("http://localhost/backend/book.php", {
+      const response = await fetch("https://okutransport.site/backend/book.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

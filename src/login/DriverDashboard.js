@@ -38,7 +38,7 @@ export default function DriverDashboard() {
   const fetchPendingBookings = async () => {
     try {
       const res = await fetch(
-        `http://localhost/backend/getPendingBookings.php`
+        `https://okutransport.site/backend/getPendingBookings.php`
       );
       const data = await res.json();
       if (data.success) setBookings(data.bookings);
@@ -70,7 +70,7 @@ export default function DriverDashboard() {
         const { latitude, longitude } = pos.coords;
         try {
           const response = await fetch(
-            "http://localhost/backend/acceptBooking.php",
+            "https://okutransport.site/backend/acceptBooking.php",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },

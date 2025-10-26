@@ -168,7 +168,7 @@ export default function AdminDashboard() {
 
   const fetchBookings = async () => {
     try {
-      const res = await fetch("http://localhost/backend/getAllBooking.php"); // 👈 use your file name
+      const res = await fetch("https://okutransport.site/backend/getAllBooking.php"); // 👈 use your file name
       const data = await res.json();
       setBookings(data); // ✅ directly set the result array
     } catch (err) {
