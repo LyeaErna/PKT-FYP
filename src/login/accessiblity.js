@@ -33,7 +33,7 @@ export default function AccessibilityForm() {
       .join(", ");
 
     try {
-      const res = await fetch("http://localhost/backend/accessbility.php", {
+      const res = await fetch("https://okutransport/backend/accessbility.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ needs: selectedNeeds }),
@@ -52,7 +52,7 @@ export default function AccessibilityForm() {
   };
 
   return (
-    <div className="text-white">
+    <div className="text-dark">
       <h2 className="text-xl font-bold mb-4">Accessibility Needs Form</h2>
       <form onSubmit={handleSubmit} className="space-y-3">
         <label className="flex items-center space-x-2">
