@@ -30,7 +30,7 @@ export default function RegisterForm() {
     setSuccess("");
 
     try {
-      const response = await fetch("htts://okutransport.site/backend/register.php", {
+      const response = await fetch("https://okutransport.site/backend/register.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, userType, phone, email, password }),
