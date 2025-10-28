@@ -45,8 +45,8 @@ export default function RegisterForm() {
 
       setSuccess(data.message);
 
-      // ✅ If user is OKU User, show accessibility form
-      // ✅ Otherwise, just close modal (registration complete)
+      //  If user is OKU User, show accessibility form
+      //  Otherwise, just close modal (registration complete)
       setTimeout(() => {
         setIsOpen(false);
         if (userType === "OKU User") {
@@ -200,10 +200,9 @@ export default function RegisterForm() {
                 onChange={(e) => setUserType(e.target.value)}
                 className="w-full p-2.5 border rounded-lg bg-gray-50 dark:bg-gray-700 dark:text-white"
               >
-                <option>OKU User</option>
+                <option>OKU Passenger</option>
                 <option>Driver</option>
-                <option>Company Admin</option>
-                <option>JKM Officer</option>
+                <option>Admin</option>
               </select>
             </div>
 

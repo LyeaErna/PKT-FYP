@@ -165,10 +165,9 @@ export default function Login() {
                 onChange={(e) => setRole(e.target.value)}
                 className="w-full p-2.5 border rounded-lg bg-gray-50 dark:bg-gray-700 dark:text-dark"
               >
-                <option>OKU User</option>
+                <option>OKU Passenger</option>
                 <option>Driver</option>
-                <option>Company Admin</option>
-                <option>JKM Officer</option>
+                <option>Admin</option>
               </select>
             </div>
 

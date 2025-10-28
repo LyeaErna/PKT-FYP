@@ -191,12 +191,6 @@ const handleProfileSubmit = async (e) => {
         </h1>
         <div className="flex gap-2 mt-2 sm:mt-0">
           <button
-            className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 py-2 rounded-lg hover:scale-105 transition-transform shadow-md font-semibold"
-            onClick={() => navigate("/home")}
-          >
-            Home
-          </button>
-          <button
             className="bg-gradient-to-r from-red-500 to-pink-600 text-white px-4 py-2 rounded-lg hover:scale-105 transition-transform shadow-md font-semibold"
             onClick={() => {
               localStorage.removeItem("driver_email");

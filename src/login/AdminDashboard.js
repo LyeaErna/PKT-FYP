@@ -168,13 +168,14 @@ export default function AdminDashboard() {
 
   const fetchBookings = async () => {
     try {
-      const res = await fetch("https://okutransport.site/backend/getAllBooking.php"); // 👈 use your file name
+      const res = await fetch(
+        "https://okutransport.site/backend/getAllBooking.php"
+      ); // 👈 use your file name
       const data = await res.json();
       setBookings(data); // ✅ directly set the result array
     } catch (err) {
       console.error("Error fetching bookings:", err);
     } finally {
-
     }
   };
 
@@ -505,15 +506,15 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        {/* Driver Details Modal */}
-        {showDriverModal && selectedDriver && (
-  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4">
-    {/* ✅ Modal Box (auto-fit, no scroll) */}
-    <div className="bg-white rounded-xl shadow-2xl w-full max-w-5xl h-auto flex flex-col">
-      {/* ✅ Header */}
+{/* Driver Details Modal */}
+{showDriverModal && selectedDriver && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4 overflow-y-auto">
+    {/* ✅ Modal Container */}
+    <div className="relative bg-white rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto flex flex-col">
+      
+      {/* ✅ Header (scrolls with content) */}
       <div className="flex items-center justify-between bg-blue-600 text-white py-4 px-6 rounded-t-xl shadow-md">
         <h2 className="text-lg sm:text-2xl font-semibold">Driver Details</h2>
-
         <button
           onClick={() => setShowDriverModal(false)}
           className="flex items-center gap-2 bg-white text-blue-600 px-4 py-1.5 rounded-lg hover:bg-blue-50 font-medium text-sm sm:text-base transition"
@@ -522,98 +523,130 @@ export default function AdminDashboard() {
         </button>
       </div>
 
-      {/* ✅ Content (fully visible, no scroll) */}
-      <div className="p-4 sm:p-6 grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-800 text-sm sm:text-base">
-        {/* Basic Information */}
-        <div className="space-y-2">
-          <h3 className="text-lg font-semibold text-gray-900 border-b pb-1">
-            Basic Information
-          </h3>
-          <p><strong>Name:</strong> {selectedDriver.name}</p>
-          <p><strong>Email:</strong> {selectedDriver.email}</p>
-          <p><strong>Phone:</strong> {selectedDriver.phone}</p>
-          <p><strong>IC Number:</strong> {selectedDriver.icNumber}</p>
-          <p><strong>Address:</strong> {selectedDriver.address}</p>
+      {/* ✅ Scrollable Modal Content */}
+      <div className="p-6 space-y-6">
+        {/* Basic Info, Driver Info, Vehicle Info, Emergency Contact */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-800 text-sm sm:text-base">
+          
+          {/* Basic Information */}
+          <div className="space-y-2">
+            <h3 className="text-lg font-semibold text-gray-900 border-b pb-1">
+              Basic Information
+            </h3>
+            <p><strong>Name:</strong> {selectedDriver.name}</p>
+            <p><strong>Email:</strong> {selectedDriver.email}</p>
+            <p><strong>Phone:</strong> {selectedDriver.phone}</p>
+            <p><strong>IC Number:</strong> {selectedDriver.icNumber}</p>
+            <p><strong>Address:</strong> {selectedDriver.address}</p>
+          </div>
+
+          {/* Driver Information */}
+          <div className="space-y-2">
+            <h3 className="text-lg font-semibold text-gray-900 border-b pb-1">
+              Driver Information
+            </h3>
+            <p><strong>License Number:</strong> {selectedDriver.licenseNumber}</p>
+            <p><strong>Experience:</strong> {selectedDriver.experience}</p>
+            <p><strong>Languages:</strong> {selectedDriver.languages}</p>
+            <p><strong>Availability:</strong> {selectedDriver.availability}</p>
+          </div>
+
+          {/* Vehicle Information */}
+          <div className="space-y-2">
+            <h3 className="text-lg font-semibold text-gray-900 border-b pb-1">
+              Vehicle Information
+            </h3>
+            <p><strong>Vehicle Type:</strong> {selectedDriver.vehicleType}</p>
+            <p><strong>Vehicle Number:</strong> {selectedDriver.vehicleNumber}</p>
+          </div>
+
+          {/* Emergency Contact */}
+          <div className="space-y-2">
+            <h3 className="text-lg font-semibold text-gray-900 border-b pb-1">
+              Emergency Contact
+            </h3>
+            <p><strong>Contact Name:</strong> {selectedDriver.emergencyContact}</p>
+            <p><strong>Contact Phone:</strong> {selectedDriver.emergencyPhone}</p>
+          </div>
         </div>
 
-        {/* Driver Information */}
-        <div className="space-y-2">
-          <h3 className="text-lg font-semibold text-gray-900 border-b pb-1">
-            Driver Information
-          </h3>
-          <p><strong>License Number:</strong> {selectedDriver.licenseNumber}</p>
-          <p><strong>Experience:</strong> {selectedDriver.experience}</p>
-          <p><strong>Languages:</strong> {selectedDriver.languages}</p>
-          <p><strong>Availability:</strong> {selectedDriver.availability}</p>
-        </div>
-
-        {/* Vehicle Information */}
-        <div className="space-y-2">
-          <h3 className="text-lg font-semibold text-gray-900 border-b pb-1">
-            Vehicle Information
-          </h3>
-          <p><strong>Vehicle Type:</strong> {selectedDriver.vehicleType}</p>
-          <p><strong>Vehicle Number:</strong> {selectedDriver.vehicleNumber}</p>
-        </div>
-
-        {/* Emergency Contact */}
-        <div className="space-y-2">
-          <h3 className="text-lg font-semibold text-gray-900 border-b pb-1">
-            Emergency Contact
-          </h3>
-          <p><strong>Contact Name:</strong> {selectedDriver.emergencyContact}</p>
-          <p><strong>Contact Phone:</strong> {selectedDriver.emergencyPhone}</p>
+        {/* ✅ Documents Section */}
+        <div>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Documents</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {selectedDriver.icPhoto && (
+              <div className="text-center">
+                <h4 className="font-medium mb-2">IC Photo</h4>
+                <a
+                  href={`http://localhost/backend/${selectedDriver.icPhoto}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={`http://localhost/backend/${selectedDriver.icPhoto}`}
+                    alt="IC"
+                    className="object-cover rounded-lg border mx-auto cursor-pointer hover:scale-105 transition-transform"
+                    style={{ width: "150px", height: "150px" }}
+                  />
+                </a>
+              </div>
+            )}
+            {selectedDriver.selfiePhoto && (
+              <div className="text-center">
+                <h4 className="font-medium mb-2">Selfie</h4>
+                <a
+                  href={`http://localhost/backend/${selectedDriver.selfiePhoto}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={`http://localhost/backend/${selectedDriver.selfiePhoto}`}
+                    alt="Selfie"
+                    className="object-cover rounded-lg border mx-auto cursor-pointer hover:scale-105 transition-transform"
+                    style={{ width: "150px", height: "150px" }}
+                  />
+                </a>
+              </div>
+            )}
+            {selectedDriver.licensePhoto && (
+              <div className="text-center">
+                <h4 className="font-medium mb-2">License</h4>
+                <a
+                  href={`http://localhost/backend/${selectedDriver.licensePhoto}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={`http://localhost/backend/${selectedDriver.licensePhoto}`}
+                    alt="License"
+                    className="object-cover rounded-lg border mx-auto cursor-pointer hover:scale-105 transition-transform"
+                    style={{ width: "150px", height: "150px" }}
+                  />
+                </a>
+              </div>
+            )}
+            {selectedDriver.vehiclePhoto && (
+              <div className="text-center">
+                <h4 className="font-medium mb-2">Vehicle</h4>
+                <a
+                  href={`http://localhost/backend/${selectedDriver.vehiclePhoto}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={`http://localhost/backend/${selectedDriver.vehiclePhoto}`}
+                    alt="Vehicle"
+                    className="object-cover rounded-lg border mx-auto cursor-pointer hover:scale-105 transition-transform"
+                    style={{ width: "150px", height: "150px" }}
+                  />
+                </a>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* ✅ Documents Section */}
-      <div className="px-6 pb-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Documents</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {selectedDriver.icPhoto && (
-            <div className="text-center">
-              <h4 className="font-medium mb-2">IC Photo</h4>
-              <img
-                src={`http://localhost/backend/${selectedDriver.icPhoto}`}
-                alt="IC"
-                className="w-full h-32 object-contain rounded-lg border"
-              />
-            </div>
-          )}
-          {selectedDriver.selfiePhoto && (
-            <div className="text-center">
-              <h4 className="font-medium mb-2">Selfie</h4>
-              <img
-                src={`http://localhost/backend/${selectedDriver.selfiePhoto}`}
-                alt="Selfie"
-                className="w-full h-32 object-contain rounded-lg border"
-              />
-            </div>
-          )}
-          {selectedDriver.licensePhoto && (
-            <div className="text-center">
-              <h4 className="font-medium mb-2">License</h4>
-              <img
-                src={`http://localhost/backend/${selectedDriver.licensePhoto}`}
-                alt="License"
-                className="w-full h-32 object-contain rounded-lg border"
-              />
-            </div>
-          )}
-          {selectedDriver.vehiclePhoto && (
-            <div className="text-center">
-              <h4 className="font-medium mb-2">Vehicle</h4>
-              <img
-                src={`http://localhost/backend/${selectedDriver.vehiclePhoto}`}
-                alt="Vehicle"
-                className="w-full h-32 object-contain rounded-lg border"
-              />
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* ✅ Action Buttons */}
+      {/* ✅ Footer (action buttons) */}
       {(selectedDriver.status === "Pending" ||
         selectedDriver.status === "Approved" ||
         selectedDriver.status === "Rejected") && (
@@ -657,6 +690,7 @@ export default function AdminDashboard() {
     </div>
   </div>
 )}
+
 
       </div>
     </div>
