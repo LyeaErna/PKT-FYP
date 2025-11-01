@@ -51,7 +51,7 @@ const OKUTransport = () => {
           {/* Left Text */}
           <div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-              Monthly Transport Service
+              OKU Booking Transport Service
             </h1>
             <div className="mb-6">
               <span className="text-3xl font-bold bg-white text-blue-800 px-2 py-1 inline-block transform -skew-x-3 hover:skew-x-0 transition-all duration-300">
