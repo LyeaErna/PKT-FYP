@@ -33,7 +33,7 @@ export default function AccessibilityForm() {
       .join(", ");
 
     try {
-      const res = await fetch("https://okutransport/backend/accessbility.php", {
+      const res = await fetch("https://okutransport.site/backend/accessbility.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ needs: selectedNeeds }),

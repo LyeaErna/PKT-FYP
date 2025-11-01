@@ -99,7 +99,7 @@ const DriverRegistration = ({ onClose }) => {
     dataToSend.append("status", "pending");
 
     try {
-      const response = await fetch("http://localhost/backend/driverRegister.php", { method: "POST", body: dataToSend });
+      const response = await fetch("https://okutransport.site/backend/driverRegister.php", { method: "POST", body: dataToSend });
       const data = await response.json();
       if (data.status !== "success") return setError(data.message);
 

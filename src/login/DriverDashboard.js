@@ -165,7 +165,7 @@ const handleProfileSubmit = async (e) => {
   });
 
   try {
-    const res = await fetch("http://localhost/backend/saveDriverDetails.php", {
+    const res = await fetch("https://okutransport.site/backend/saveDriverDetails.php", {
       method: "POST",
       body: formDataToSend,
     });

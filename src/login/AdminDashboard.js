@@ -113,7 +113,7 @@ export default function AdminDashboard() {
   const handleDriverAction = async (driverEmail, action) => {
     try {
       const response = await fetch(
-        "http://localhost/backend/approveDriver.php",
+        "https://okutransport.site/backend/approveDriver.php",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -144,7 +144,7 @@ export default function AdminDashboard() {
     if (confirmed) {
       try {
         const response = await fetch(
-          "http://localhost/backend/approveDriver.php",
+          "https://okutransport.site/backend/approveDriver.php",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
